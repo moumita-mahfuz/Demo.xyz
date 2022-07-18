@@ -1,6 +1,8 @@
 import 'package:demo_xyz/signUpPage.dart';
 import 'package:flutter/material.dart';
 
+import 'SingleServiceDetailsRoute.dart';
+import 'acDetails.dart';
 import 'main.dart';
 
 // void main() => runApp(const signIn());
@@ -24,7 +26,7 @@ class signIn extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DemoXyz(),
+                  builder: (context) => MyListView(),
                 ),
               ),
               child: Text("Skip"),
@@ -91,7 +93,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 //   labelText: 'User Name',
                 // ),
               ),
-
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
