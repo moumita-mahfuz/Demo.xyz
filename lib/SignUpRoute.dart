@@ -61,6 +61,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
+              padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
               alignment: Alignment.topLeft,
               child: const Text(
                 'Create An Account',
@@ -76,7 +77,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           //UserName
           Container(
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
             height: 10.h,
             //color: Colors.amber,
             child: TextField(
@@ -100,7 +101,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           //Email Or Mobile Numbe
           Container(
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
             height: 10.h,
             //color: Colors.amber,
             child: TextField(
@@ -125,7 +126,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: 10.h,
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
             //height: 18.h,
             child: TextField(
               cursorColor: Colors.grey,
@@ -176,18 +177,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Container(
               width: double.infinity,
               height: 10.h,
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
               ),
               child: ElevatedButton(
                 child: Text(
-                  'Submit Data',
+                  'Register Now',
                   style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: "InterR",
-                    color: Colors.black,
-                  ),
+                      color: Colors.black,
+                      fontSize: 2.h,
+                      fontFamily: "InterR",
+                      fontWeight: FontWeight.bold),
                 ),
                 style: ElevatedButton.styleFrom(
                   primary: Color(0xFFFFB317),
@@ -210,21 +211,26 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ),
                 ),
                 GestureDetector(
-                  child: const Text(
-                    'Sign In',
-                    style: TextStyle(
-                        color: Colors.orange,
-                        fontSize: 16,
-                        fontFamily: "InterR",
-                        fontWeight: FontWeight.bold),
-                  ),
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignInRoute(),
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(
+                          color: Colors.orange,
+                          fontSize: 16,
+                          fontFamily: "InterR",
+                          fontWeight: FontWeight.bold),
                     ),
-                  ),
-                )
+                    onTap: () => {
+                          if (Navigator.of(context).canPop())
+                            {Navigator.of(context).pop()}
+                        }
+                    //     Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => SignInRoute(),
+                    //   ),
+                    // ),
+
+                    )
               ],
               mainAxisAlignment: MainAxisAlignment.center,
             ),

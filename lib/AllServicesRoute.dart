@@ -40,7 +40,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
               color: Color(0xFFFFFFFF),
             ),
           ),
-          backgroundColor: Color(0xFF32C7CC),
+          backgroundColor: Color(0xFFFFB317),
         ),
       ),
       body: Container(
@@ -92,7 +92,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: checked ? Colors.white : Color(0xFF32C7CC),
+              color: checked ? Colors.white : Color(0xFFFFB317),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +100,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
               children: [
                 Image.asset(
                   category[index].image,
-                  color: checked ? Color(0xFF32C7CC) : Colors.white,
+                  color: checked ? Color(0xFFFFB317) : Colors.white,
                   height: 5.h,
                   width: 5.h,
                 ),

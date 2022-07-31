@@ -16,6 +16,7 @@ class HomeRoute extends StatefulWidget {
 
 class _HomeRouteState extends State<HomeRoute> {
   List<Category> categories = Category.categories;
+  Color primary = Color(0xFFFFB317);
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -53,7 +54,7 @@ class _HomeRouteState extends State<HomeRoute> {
                 "H # 211, Road # 20, Mohamm...",
                 style: TextStyle(
                   fontSize: 12,
-                  color: Color(0xFFFFB317),
+                  color: Colors.black,
                   fontFamily: "InterR",
                 ),
               ),
@@ -70,27 +71,27 @@ class _HomeRouteState extends State<HomeRoute> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 //height: 18.h,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: TextField(
-                    cursorColor: Color(0xFFFFB317),
-                    readOnly: true,
-                    showCursor: true,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            color: Color(0xFF9A9A9A), width: 1.0),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            color: Color(0xFFFFB317), width: 1.0),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      hintText: 'Enter a search term',
-                      prefixIcon: Icon(Icons.search_sharp),
+                //color: Colors.amber,
+                margin: EdgeInsets.fromLTRB(2.5.w, 1.5.h, 2.5.w, 1.5.h),
+                //padding: EdgeInsets.all(8),
+                child: TextField(
+                  cursorColor: Color(0xFFFFB317),
+                  //readOnly: true,
+                  showCursor: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xFF9A9A9A), width: 1.0),
+                      borderRadius: BorderRadius.circular(10),
                     ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xFFFFB317), width: 1.0),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    hintText: 'Enter a search term',
+                    prefixIcon:
+                        Icon(Icons.search_sharp, color: Color(0xFFFFB317)),
                   ),
                 ),
               ),
@@ -98,48 +99,38 @@ class _HomeRouteState extends State<HomeRoute> {
               CustomizeSlider(images),
               //Categories
               Container(
-                height: 42.h,
+                //height: 42.h,
                 width: width,
                 alignment: Alignment.center,
-                margin: EdgeInsets.fromLTRB(12, 20, 12, 0),
-                padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                margin: EdgeInsets.fromLTRB(2.5.w, 1.5.h, 2.5.w, 1.5.h),
                 decoration: BoxDecoration(
-                  color: Colors.red,
+                  //color: Colors.red,
                   border: Border.all(color: const Color(0xFF9A9A9A)),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
                   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(height: 5.w),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    Wrap(
                       children: [
-                        SingleCategory(
+                        _singleCategory(
                             categories[0].image, categories[0].title, 0),
-                        SingleCategory(
+                        _singleCategory(
                             categories[1].image, categories[1].title, 1),
-                        SingleCategory(
+                        _singleCategory(
                             categories[2].image, categories[2].title, 2),
-                        SingleCategory(
+                        _singleCategory(
                             categories[3].image, categories[3].title, 3),
-                      ],
-                    ),
-                    SizedBox(height: 5.w),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        SingleCategory(
+                        _singleCategory(
                             categories[4].image, categories[4].title, 4),
-                        SingleCategory(
+                        _singleCategory(
                             categories[5].image, categories[5].title, 5),
-                        SingleCategory(
+                        _singleCategory(
                             categories[6].image, categories[6].title, 6),
-                        SingleCategory(
+                        _singleCategory(
                             categories[7].image, categories[7].title, 7),
                       ],
                     ),
-                    SizedBox(height: 5.w),
                     const Divider(
                       thickness: 1, // thickness of the line
                       indent: 20, // empty space to the leading edge of divider.
@@ -154,21 +145,22 @@ class _HomeRouteState extends State<HomeRoute> {
                         height: 6.h,
                         width: width,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                        ),
+                        // decoration: BoxDecoration(
+                        //   color: Colors.amber,
+                        // ),
                         child: Column(
                           children: [
                             Text(
                               "More Categories",
                               style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 18,
+                                // color: Colors.black,
+                                fontSize: 1.7.h,
                               ),
                             ),
                             Image.asset(
                               'assets/down.png',
-                              color: Colors.black,
+                              color: primary,
                             )
                           ],
                         ),
@@ -180,15 +172,13 @@ class _HomeRouteState extends State<HomeRoute> {
                   ],
                 ),
               ),
-
               SizedBox(height: 5.w),
               //Slide banner 2
               CustomizeSlider(banner2),
               //Trending
               Container(
-                height: 55.h,
                 width: width,
-                //margin: EdgeInsets.fromLTRB(12, 15, 12, 0),
+                padding: EdgeInsets.fromLTRB(2.5.w, 1.5.h, 2.5.w, 1.5.h),
                 // decoration: BoxDecoration(
                 //   color: Colors.grey,
                 // ),
@@ -196,7 +186,7 @@ class _HomeRouteState extends State<HomeRoute> {
                   children: [
                     //Trending & see all
                     Container(
-                      margin: EdgeInsets.fromLTRB(12, 15, 12, 0),
+                      //margin: EdgeInsets.fromLTRB(12, 15, 12, 0),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 8),
                       child: Row(
@@ -220,7 +210,7 @@ class _HomeRouteState extends State<HomeRoute> {
                               style: TextStyle(
                                 fontSize: 4.w,
                                 fontFamily: "InterR",
-                                color: Color(0xFF32C7CC),
+                                color: primary,
                               ),
                             ),
                           ),
@@ -360,9 +350,8 @@ class _HomeRouteState extends State<HomeRoute> {
               ),
               //Recommended
               Container(
-                height: 55.h,
                 width: width,
-                //margin: EdgeInsets.fromLTRB(12, 15, 12, 0),
+                padding: EdgeInsets.fromLTRB(2.5.w, 1.5.h, 2.5.w, 1.5.h),
                 // decoration: BoxDecoration(
                 //   color: Colors.grey,
                 // ),
@@ -370,7 +359,7 @@ class _HomeRouteState extends State<HomeRoute> {
                   children: [
                     //Recommended & see all
                     Container(
-                      margin: EdgeInsets.fromLTRB(10, 8, 10, 8),
+                      //margin: EdgeInsets.fromLTRB(10, 8, 10, 8),
                       // padding: const EdgeInsets.symmetric(
                       //     horizontal: 8, vertical: 8),
                       //padding: EdgeInsets.all(8),
@@ -395,7 +384,7 @@ class _HomeRouteState extends State<HomeRoute> {
                               style: TextStyle(
                                 fontSize: 4.w,
                                 fontFamily: "InterR",
-                                color: Color(0xFF32C7CC),
+                                color: primary,
                               ),
                             ),
                           ),
@@ -557,7 +546,7 @@ class _HomeRouteState extends State<HomeRoute> {
               Container(
                 //height: 15.h,
                 width: width,
-                margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                padding: EdgeInsets.fromLTRB(2.5.w, 1.5.h, 2.5.w, 1.5.h),
 
                 child:
                     Stack(alignment: Alignment.bottomLeft, children: <Widget>[
@@ -594,7 +583,7 @@ class _HomeRouteState extends State<HomeRoute> {
                             fontSize: 5.h,
                             fontWeight: FontWeight.bold,
                             fontFamily: "InterM",
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -603,7 +592,7 @@ class _HomeRouteState extends State<HomeRoute> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             onPrimary: Colors.white,
-                            primary: Color(0xFF32C7CC),
+                            primary: primary,
                             // minimumSize: Size(88, 36),
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             // shape: ElevatedButton.styleFrom(
@@ -631,24 +620,19 @@ class _HomeRouteState extends State<HomeRoute> {
                     ],
                   ),
                 ]),
-                // child: const AspectRatio(
-                //   aspectRatio: 16 / 9,
-                //   child: Image(
-                //     image: AssetImage('assets/Rectangle 16.png'),
-                //     fit: BoxFit.fill, // use this
-                //   ),
-                // ),
               ),
               //All service Button
               Container(
                   //height: 15.h,
+                  height: 10.h,
                   width: width,
-                  margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  padding: EdgeInsets.fromLTRB(2.5.w, 1.5.h, 2.5.w, 1.5.h),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      onPrimary: Colors.grey[300],
-                      primary: Color(0xFF32C7CC),
-                      minimumSize: Size(88, 36),
+                      primary: primary,
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
                       //padding: EdgeInsets.symmetric(horizontal: 16),
                       // shape: ElevatedButton.styleFrom(
                       //   primary: ThemeColors.darkBg,
@@ -659,8 +643,9 @@ class _HomeRouteState extends State<HomeRoute> {
                       'All Services',
                       style: TextStyle(
                         fontSize: 5.w,
+                        fontWeight: FontWeight.bold,
                         fontFamily: "InterM",
-                        color: Color(0xFFFFFFFF),
+                        color: Colors.black,
                       ),
                     ),
                     onPressed: () {
@@ -682,14 +667,14 @@ class _HomeRouteState extends State<HomeRoute> {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+      margin: EdgeInsets.fromLTRB(2.5.w, 1.h, 2.5.w, 1.h),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            Color(0xFF32C7CC),
             Color(0xFF07D765),
+            primary,
           ],
         ),
         borderRadius: BorderRadius.all(
@@ -701,7 +686,7 @@ class _HomeRouteState extends State<HomeRoute> {
         children: [
           Container(
             child: Padding(
-              padding: const EdgeInsets.only(left: 15),
+              padding: EdgeInsets.only(left: 2.w),
               child: Text(
                 serviceType,
                 style: TextStyle(
@@ -742,102 +727,52 @@ class _HomeRouteState extends State<HomeRoute> {
     );
   }
 
-  Widget SingleCategory(String image, String title, int clickedIndex) {
-    // return Container(
-    //   color: Colors.grey,
-    //   child: GestureDetector(
-    //     onTap: () => {
-    //       Navigator.push(
-    //         context,
-    //         MaterialPageRoute(
-    //             builder: (context) => AllServiceRoute(clickedIndex)),
-    //       )
-    //     },
-    //     child: Column(
-    //       children: [
-    //         Image.asset(
-    //           image,
-    //           color: Color(0xFFFFB317),
-    //         ),
-    //         const SizedBox(height: 5),
-    //         Container(
-    //           //width: double.infinity,
-    //           height: 6.h,
-    //           width: 10.h,
-    //           color: Colors.grey,
-    //           // decoration: BoxDecoration(
-    //           //   color: Colors.amber,
-    //           // ),
-    //           child: Text(
-    //             title,
-    //             textAlign: TextAlign.center,
-    //             overflow: TextOverflow.ellipsis,
-    //             maxLines: 2,
-    //             style: const TextStyle(
-    //               color: Colors.black,
-    //               fontSize: 12,
-    //             ),
-    //           ),
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
+  Widget _singleCategory(String image, String title, int clickedIndex) {
     return Container(
-      width: 12.h,
-      height: 12.h,
+      width: 10.h,
+      height: 11.h,
+      padding: EdgeInsets.fromLTRB(1.w, 2.w, 1.w, 1.w),
       child: GestureDetector(
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
-                color: Color(0xFF32C7CC),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+              // decoration: BoxDecoration(
+              //   color: Color(0xFF32C7CC),
+              //   color: Colors.orange),
+              // ),
+              child: Wrap(
                 children: [
-                  Image.asset(
-                    image,
-                    color: Colors.white,
-                    height: 5.h,
-                    width: 5.h,
+                  Container(
+                    //color: Colors.black,
+                    alignment: Alignment.bottomCenter,
+                    //padding: EdgeInsets.fromLTRB(1.w, 1.w, 1.w, 1.w),
+                    child: Image.asset(
+                      image,
+                      color: Color(0xFFFFB317),
+                      height: 4.h,
+                      width: 4.h,
+                    ),
                   ),
+
                   //const SizedBox(height: 5),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(3, 3, 3, 0),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(1.w, 1.w, 1.w, 1.w),
+                    //color: Colors.grey,
                     child: Text(
                       title,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
                         // color: Colors.black,
-                        fontSize: .3.cm,
+                        fontSize: 1.5.h,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            // Positioned(
-            //   top: 12,
-            //   right: 12,
-            //   child: Offstage(
-            //     offstage: !checked,
-            //     child: Container(
-            //       decoration: BoxDecoration(
-            //           color: Colors.white,
-            //           border: Border.all(width: 2),
-            //           shape: BoxShape.circle),
-            //       child: Icon(
-            //         Icons.check,
-            //         color: Colors.red,
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),
@@ -882,13 +817,13 @@ class _HomeRouteState extends State<HomeRoute> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SingleCategory(
+                        _singleCategory(
                             categories[0].image, categories[0].title, 0),
-                        SingleCategory(
+                        _singleCategory(
                             categories[1].image, categories[1].title, 1),
-                        SingleCategory(
+                        _singleCategory(
                             categories[2].image, categories[2].title, 2),
-                        SingleCategory(
+                        _singleCategory(
                             categories[3].image, categories[3].title, 3),
                       ],
                     ),
@@ -896,13 +831,13 @@ class _HomeRouteState extends State<HomeRoute> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SingleCategory(
+                        _singleCategory(
                             categories[4].image, categories[4].title, 4),
-                        SingleCategory(
+                        _singleCategory(
                             categories[5].image, categories[5].title, 5),
-                        SingleCategory(
+                        _singleCategory(
                             categories[6].image, categories[6].title, 6),
-                        SingleCategory(
+                        _singleCategory(
                             categories[7].image, categories[7].title, 7),
                       ],
                     ),
